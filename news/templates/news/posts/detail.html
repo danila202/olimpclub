@@ -1,0 +1,14 @@
+{% extends 'news/index.html' %}
+
+{% load static %}
+
+{% block title %} {{ new.title }} {% endblock %}
+{% block carousel %}
+    <h2>{{ new.title }}</h2>
+    <img class="w-100" src="{{ new.image.url }}">
+    <p class="date">
+        {{ new.publish }} опубликован {{ new.author }}
+    </p>
+    {{ new.body|linebreaks }}
+
+{% endblock %}

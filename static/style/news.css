@@ -1,0 +1,13 @@
+body {
+ background-image: url('https://img.freepik.com/free-photo/beautiful-young-slim-woman-doing-stretching-exercises-at-the-gym-against-white_155003-17254.jpg?q=10&h=200');
+ background-repeat: no-repeat;
+ background-size: cover;
+ color: gray;
+ font-family: 'Roboto Slab', serif;
+ font-size: 20px;
+}
+
+html {
+    font-size: 16px;
+}
+

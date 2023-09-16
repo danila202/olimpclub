@@ -1,0 +1,42 @@
+.navbar-nav .dropdown-menu {
+    right: 0;
+    left: auto;
+}
+
+
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Roboto Slab', serif;
+    font-size: 20px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+section {
+    padding: 50px 0;
+}
+
+.modal-body img {
+    max-width: 100px;
+}
+
+.my-carousel{
+    padding: 0;
+}
+
+.my-carousel .carousel-item {
+    max-height: 650px;
+
+}
+
+.my-carousel .carousel-item img {
+    object-fit: cover;
+    height: 650px;
+}

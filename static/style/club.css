@@ -1,0 +1,10 @@
+body {
+    background: black;
+    color: antiquewhite;
+    font-family: 'Roboto Slab', serif;
+    font-size: 20px;
+}
+
+.container-fluid>img {
+    height: 600px;
+}
