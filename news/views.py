@@ -11,10 +11,13 @@ def display_news(request):
     return render(request,'news/posts/list.html', {'news': news,})
 
 
-def display_detail_new(request,id):
+def display_detail_new(request,year,month,day,new):
     new = get_object_or_404(News,
-                            id=id,
-                            status=News.Status.PUBLISHED)
+                            status=News.Status.PUBLISHED,
+                            slug=new,
+                            publish__year=year,
+                            publish__month=month,
+                            publish__day=day)
 
     return render(request,'news/posts/detail.html', {'new': new})
 

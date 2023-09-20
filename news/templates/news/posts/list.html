@@ -13,7 +13,7 @@
     <div class="col-lg-4 col-md-6 mb-4">
     <div class="card h-100">
         <div class="card-body">
-        <a  style="text-decoration: none;" class="news" href="{% url 'new:new_detail' new.id %}"><h1 class="text-center">{{ new.title }}</h1> </a>
+        <a  style="text-decoration: none;" class="news" href="{{ new.get_absolute_url }}"><h1 class="text-center">{{ new.title }}</h1> </a>
         <img class="w-100" src="{{ new.image.url }}" alt="">
         <p>{{ new.body }}</p>
 
