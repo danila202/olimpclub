@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import News
+from django.core.paginator import Paginator, EmptyPage
 
 
 def home(request):
@@ -7,8 +8,16 @@ def home(request):
 
 
 def display_news(request):
-    news = News.published.all()
-    return render(request,'news/posts/list.html', {'news': news,})
+    news_list = News.published.all()
+    paginator = Paginator(news_list, 3)
+
+    page_number = request.GET.get('page', 1)
+    try:
+        news_page = paginator.page(page_number)
+    except EmptyPage:
+        news_page = paginator.page(paginator.num_pages)
+
+    return render(request, 'news/posts/list.html', {'news_page': news_page})
 
 
 def display_detail_new(request,year,month,day,new):
