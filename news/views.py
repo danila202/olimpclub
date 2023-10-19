@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import News
-from django.core.paginator import Paginator, EmptyPage
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 def home(request):
@@ -16,6 +16,8 @@ def display_news(request):
         news_page = paginator.page(page_number)
     except EmptyPage:
         news_page = paginator.page(paginator.num_pages)
+    except PageNotAnInteger:
+        news_page = paginator.page(1)
 
     return render(request, 'news/posts/list.html', {'news_page': news_page})
 

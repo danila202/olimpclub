@@ -1,0 +1,94 @@
+{% load static %}
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/d5e926eb63.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'style/registration.css'%}">
+
+  </head>
+  <body>
+    <div class="wrapper">
+
+        <div class="form-left">
+            <h2 class="text-uppercase">Олимп спорт академия</h2>
+            <div>
+                <img height="550" width="450" src="{% static 'images/pictures.jpg' %}">
+            </div>
+            <div class="account" >
+                <input type="submit" class="btn" value="Есть аккаунт?" >
+            </div>
+        </div>
+        <form class="form-right" action="{% url 'user:user_form' %}" method="post">
+            {% csrf_token %}
+            <h2 class="text-uppercase" style="color: #333333">Регистрация</h2>
+            <div class="form-row">
+                <div class="col-sm-8 mb-3">
+                    <label for="{{ registration_form.first_name.id_for_label }}">
+                        Имя
+                    </label>
+                    {{ registration_form.first_name }}
+                </div>
+                <div class="col-sm-8 mb-3">
+                    <label for="{{ registration_form.last_name.id_for_label }}">
+                        Фамилия
+                    </label>
+                    {{ registration_form.last_name }}
+
+                </div>
+                <div class="col-sm-8 mb-3">
+                    <label for="{{ registration_form.patronymic.id_for_label }}">
+                        Отчество
+                    </label>
+                    {{ registration_form.patronymic }}
+
+                </div>
+            </div>
+            <div class="col-sm-12 mb-5">
+                <label for="{{ registration_form.email.id_for_label }}">
+                    Почта
+                </label>
+                {{ registration_form.email }}
+            </div>
+            <div class="row">
+                <div class="col-sm-6 mb-3">
+                    <label for="{{ registration_form.sport_section.id_for_label}}">
+                        Вид спорта
+                    </label>
+                    {{ registration_form.sport_section }}
+
+                </div>
+                <div class="col-sm-8 mb-3">
+                    <label for="{{ registration_form.position.id_for_label }}">
+                        Должность
+                    </label>
+                    {{ registration_form.position }}
+
+                </div>
+                <div class="col-sm-8 mb-3">
+
+                    <label for="{{ registration_form.password1.id_for_label }}">
+                        Пароль
+                    </label>
+
+                    {{ registration_form.password1 }}
+                </div>
+                <div class="col-sm-8 mb-3">
+
+                    <label for="{{ registration_form.password2.id_for_label}}">
+                        Подтверждение пароля
+                    </label>
+                    {{ registration_form.password2 }}
+
+                </div>
+            </div>
+
+            <div>
+                <input type="submit" value="Регистрация" class="register" name="register" src="{% url 'user:user_form' %}">
+            </div>
+        </form>
+    </div>
+  </body>
+</html>

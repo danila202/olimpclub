@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
 from django.urls import reverse
+from olimp import settings
+from user.models import CustomUser
 
 
 class PublishedManager(models.Manager):
@@ -19,7 +21,7 @@ class News(models.Model):
     image = models.ImageField(blank=True, upload_to='images/')
     slug = models.SlugField(max_length=250, unique_for_date='publish')
     body = models.TextField()
-    author = models.ForeignKey(User,on_delete=models.CASCADE,related_name='blog_news')
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,related_name='blog_news')
     publish = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now_add=True)
