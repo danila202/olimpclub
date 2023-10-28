@@ -54,8 +54,8 @@ MIDDLEWARE = [
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend', # This is the default that allows us to log in via username
-    'user.authentication.EmailAuthBackend'
-]
+    'user.authentication.EmailBackend',
+    ]
 
 ROOT_URLCONF = "olimp.urls"
 TEMPLATE_DIR = os.path.join(BASE_DIR, "templates")
@@ -137,3 +137,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 AUTH_USER_MODEL = 'user.CustomUser'
+
+# Email Authentication
+# ACCOUNT_AUTHENTICATION_METHOD = 'email'
+# ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+# ACCOUNT_EMAIL_REQUIRED = True
+# ACCOUNT_USERNAME_REQUIRED = False

@@ -59,12 +59,7 @@ class CustomUser(AbstractUser, PermissionsMixin):
                                      choices=SportSection.choices)
     position = models.CharField(max_length=2, choices=JobTitle.choices)
 
-    username = models.CharField(
-        max_length=100,
-        error_messages={"unique": ("Такой пользователь уже существует")},
-        null=True,
-        blank=True
-    )
+    username = None
     email = models.EmailField('email adress', unique=True)
 
     is_active = models.BooleanField(default=False)
